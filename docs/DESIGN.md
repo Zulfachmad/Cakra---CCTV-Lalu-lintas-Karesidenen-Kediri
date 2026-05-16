@@ -1,0 +1,3 @@
+Ide aplikasi ini adalah CAKRA, sebuah platform pemantauan CCTV lalu lintas real-time yang mengintegrasikan sumber data dari wilayah Kediri, Tulungagung, dan Blitar ke dalam satu antarmuka terpusat. Dibangun dengan teknologi Progressive Web App (PWA), aplikasi ini dirancang agar ringan dan dapat diakses lintas perangkat tanpa instalasi yang membebani memori, serta dilengkapi dengan fitur Clean Map UI untuk meminimalisir kepadatan visual pada peta. Tujuan utamanya adalah untuk memudahkan masyarakat dan pihak berwenang dalam memantau arus lalu lintas secara efisien, bahkan dalam kondisi koneksi internet yang tidak stabil
+
+link mockup   : https://canva.link/pmaim8m2448grn9
