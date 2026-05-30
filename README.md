@@ -5,8 +5,4 @@ Pembagian Peran :
 - Ilham Dimas Ramadhan (Backend Developer) | Fokus pada logika server dan database.
 - Bagas Darma Saputra (Frontend Developer) | Fokus pada antarmuka pengguna (UI/UX).
   
-Deskripsi proyek	: Membangun sistem berbasis web untuk mengelola data inventaris laboratorium secara terstruktur, meliputi pencatatan aset, pemantauan kondisi, pengelolaan histori, dan mutasi barang antar laboratorium.
-Tujuan: 
-- Menyimpan data barang laboratorium secara digital dan terstruktur
-- Menampilkan informasi detail barang (nama, kode aset, tipe, spesifikasi, kondisi, ketersediaan)
-- Mempermudah pencarian dan monitoring data inventaris, Mencatat histori perubahan kondisi dan perpindahan lokasi setiap aset
+Deskripsi proyek	:plikasi pemantauan CCTV lalu lintas real-time se-Karisidenan Kediri yang menyatukan data streaming terpisah dari wilayah Kediri, Tulungagung, dan Blitar ke dalam satu platform terpadu berbasis Progressive Web App (PWA). Aplikasi ini mengusung tampilan peta yang bersih (Clean Map UI) untuk membuang elemen tidak penting agar pengendara bisa fokus melihat rute jalan dan status operasional kamera secara instan. Karena dikembangkan dengan teknologi PWA, sistem ini sangat ringan, tidak menghabiskan memori penyimpanan HP, dan dioptimasi menggunakan Service Worker supaya tetap responsif serta stabil saat menampilkan aliran video bahkan ketika sinyal internet di perjalanan naik-turun.
