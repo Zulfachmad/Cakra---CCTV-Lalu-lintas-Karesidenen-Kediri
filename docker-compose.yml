@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # 1. Service Database (MySQL)
+  cakra-db:
+    image: mysql:8.0
+    container_name: cakra-database
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      # ==========================================
+      # TUGAS BACKEND: Named Volume untuk Database
+      # ==========================================
+      - cakra_db_data:/var/lib/mysql 
+
+  # 2. Service Backend (NestJS)
+  cakra-backend:
+    build: .
+    container_name: cakra-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - cakra-db
+    # (Opsional) Persiapan untuk tugas Product Lead:
+    # volumes:
+    #   - ./logs:/app/logs
+
+# Deklarasi Named Volume di tingkat global
+volumes:
+  cakra_db_data:
