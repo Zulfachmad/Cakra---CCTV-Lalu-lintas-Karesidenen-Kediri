@@ -32,6 +32,16 @@ services:
     # volumes:
     #   - ./logs:/app/logs
 
+  # 3. Service Frontend (Vue.js)
+  cakra-frontend:
+    image: node:20
+    container_name: cakra-frontend
+    working_dir: /app/frontend
+    volumes:
+      - ./frontend/public/images:/app/frontend/public/images
+    command: npm run dev
+
+
 # Deklarasi Named Volume di tingkat global
 volumes:
   cakra_db_data:
