@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # 1. Service Database (MySQL)
+  cakra-db:
+    image: mysql:8.0
+    container_name: cakra-database
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      # ==========================================
+      # TUGAS BACKEND: Named Volume untuk Database
+      # ==========================================
+      - cakra_db_data:/var/lib/mysql 
+
+  # 2. Service Backend (NestJS)
+  cakra-backend:
+    # --- PERUBAHAN TUGAS KELOMPOK M14 ---
+    # Menghapus 'build: .' dan menggantinya dengan image registry produksi dari GHCR kelompok
+    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-be:v1.0.0
+    container_name: cakra-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - cakra-db
+    # Bind Mount logs dari M13 (Bisa dibiarkan aktif/di-uncomment jika diperlukan)
+    volumes:
+      - ./logs:/app/logs
+
+  # 3. Service Frontend (Vue.js)
+  cakra-frontend:
+    # --- PERUBAHAN TUGAS KELOMPOK M14 ---
+    # Mengganti image dasar node:20 lokal menjadi image UI produksi dari GHCR kelompok
+    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-fe:v1.0.0
+    container_name: cakra-frontend
+    ports:
+      - "80:80" # Biasanya port UI produksi diarahkan ke port HTTP standar (80 atau 8080)
+    depends_on:
+      - cakra-backend
+
+# Deklarasi Named Volume di tingkat global
+volumes:
+  cakra_db_data:
