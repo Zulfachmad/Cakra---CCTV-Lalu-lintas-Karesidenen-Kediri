@@ -20,7 +20,7 @@ services:
 
   # 2. Service Backend (NestJS)
   cakra-backend:
-    build: .
+    image: ghcr.io/zulfachmad/cakra-be:v1.0.0
     container_name: cakra-backend
     ports:
       - "3000:3000"
@@ -34,7 +34,7 @@ services:
 
   # 3. Service Frontend (Vue.js)
   cakra-frontend:
-    image: node:20
+    image: ghcr.io/zulfachmad/cakra-fe:v1.0.0
     container_name: cakra-frontend
     working_dir: /app/frontend
     volumes:
