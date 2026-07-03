@@ -20,7 +20,7 @@ services:
 
   # 2. Service Backend (NestJS)
   cakra-backend:
-    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-be:v1.0.0
+    image: ghcr.io/zulfachmad/cakra-be:v1.0.0
     container_name: cakra-backend
     ports:
       - "3000:3000"
@@ -31,7 +31,7 @@ services:
 
   # 3. Service Frontend (Vue.js)
   cakra-frontend:
-    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-fe:v1.0.0
+    image: ghcr.io/zulfachmad/cakra-fe:v1.0.0
     container_name: cakra-frontend
     ports:
       - "80:80" 
