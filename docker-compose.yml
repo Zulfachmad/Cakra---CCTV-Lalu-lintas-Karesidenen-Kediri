@@ -22,7 +22,7 @@ services:
   cakra-backend:
     # --- PERUBAHAN TUGAS KELOMPOK M14 ---
     # Menghapus 'build: .' dan menggantinya dengan image registry produksi dari GHCR kelompok
-    image: ghcr.io/zulfachmad/cakra-be:v1.0.0
+    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-be:v1.0.0
     container_name: cakra-backend
     ports:
       - "3000:3000"
@@ -38,7 +38,7 @@ services:
   cakra-frontend:
     # --- PERUBAHAN TUGAS KELOMPOK M14 ---
     # Mengganti image dasar node:20 lokal menjadi image UI produksi dari GHCR kelompok
-    image: ghcr.io/zulfachmad/cakra-fe:v1.0.0
+    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-fe:v1.0.0
     container_name: cakra-frontend
     ports:
       - "80:80" # Biasanya port UI produksi diarahkan ke port HTTP standar (80 atau 8080)
