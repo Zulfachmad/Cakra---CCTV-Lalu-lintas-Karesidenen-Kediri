@@ -20,7 +20,9 @@ services:
 
   # 2. Service Backend (NestJS)
   cakra-backend:
-    image: ghcr.io/zulfachmad/cakra-be:v1.0.0
+    # --- PERUBAHAN TUGAS KELOMPOK M14 ---
+    # Menghapus 'build: .' dan menggantinya dengan image registry produksi dari GHCR kelompok
+    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-be:v1.0.0
     container_name: cakra-backend
     ports:
       - "3000:3000"
@@ -28,19 +30,20 @@ services:
       - .env
     depends_on:
       - cakra-db
-    # (Opsional) Persiapan untuk tugas Product Lead:
-    # volumes:
-    #   - ./logs:/app/logs
+    # Bind Mount logs dari M13 (Bisa dibiarkan aktif/di-uncomment jika diperlukan)
+    volumes:
+      - ./logs:/app/logs
 
   # 3. Service Frontend (Vue.js)
   cakra-frontend:
-    image: ghcr.io/zulfachmad/cakra-fe:v1.0.0
+    # --- PERUBAHAN TUGAS KELOMPOK M14 ---
+    # Mengganti image dasar node:20 lokal menjadi image UI produksi dari GHCR kelompok
+    image: ghcr.io/zulfachmad/cakra---cctv-lalu-lintas-karesidenen-kediri-fe:v1.0.0
     container_name: cakra-frontend
-    working_dir: /app/frontend
-    volumes:
-      - ./frontend/public/images:/app/frontend/public/images
-    command: npm run dev
-
+    ports:
+      - "80:80" # Biasanya port UI produksi diarahkan ke port HTTP standar (80 atau 8080)
+    depends_on:
+      - cakra-backend
 
 # Deklarasi Named Volume di tingkat global
 volumes:
