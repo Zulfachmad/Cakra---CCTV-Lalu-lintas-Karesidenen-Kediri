@@ -3,15 +3,10 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  
+  // Tambahkan baris ini untuk membuka gerbang CORS
+  app.enableCors();
 
-  // Implementasi CORS untuk mengizinkan akses dari Frontend (Vue.js)
-  app.enableCors({
-    origin: '*', // Untuk tahap development awal, izinkan dari semua origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  });
-
-  await app.listen(3000);
-  console.log('=== Server CAKRA Backend Running on http://localhost:3000 ===');
+  await app.listen(process.env.PORT || 3030);
 }
 bootstrap();
