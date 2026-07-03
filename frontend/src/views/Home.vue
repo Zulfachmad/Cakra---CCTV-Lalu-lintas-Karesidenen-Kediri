@@ -1,24 +1,7 @@
 <template>
   <div>
     <h1>Dashboard CCTV Kediri</h1>
-
-```
-<p v-if="loading">Loading data dari backend...</p>
-
-<p v-else-if="error">
-  Error: {{ error }}
-</p>
-
-<div v-else>
-  <h3>Status: {{ apiData.status }}</h3>
-
-  <p>{{ apiData.message }}</p>
-
-  <p>Versi: {{ apiData.data?.versi }}</p>
-  <p>Proyek: {{ apiData.data?.proyek }}</p>
-</div>
-```
-
+    <p>Frontend berhasil dibuat 🎉</p>
   </div>
 </template>
 
@@ -36,7 +19,7 @@ export default {
 
   async mounted() {
     try {
-      const response = await fetch("http://localhost:3000/api/status")
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/status`)
 
       if (!response.ok) {
         throw new Error("Gagal mengambil data dari backend")

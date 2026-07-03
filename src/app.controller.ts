@@ -1,17 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
 
-@Controller('api') // Menambahkan awalan /api
+@Controller()
 export class AppController {
-  
-  @Get('status') // Ini akan menjadi endpoint GET /api/status
-  getStatus() {
-    return {
-      status: 'success',
-      message: 'CORS berhasil dibuka! Backend CAKRA siap menerima request dari Frontend.',
-      data: {
-        versi: '1.0',
-        proyek: 'Sistem CCTV Lalu-lintas CAKRA'
-      }
-    };
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
   }
 }
